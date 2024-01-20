@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdBlock Detector</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/default.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="center">
+        <h5 class="notification bg-success" id="adb-not-enabled">AdBlock is disabled</h5>
+        <h5 class="notification bg-danger" id="adb-enabled">AdBlock is enabled</h5>
+    </div>
+
+    <div class="below">
+        <input type="button" onclick="history.go(0)" value="Reload Page">
+    </div>
+
+    <script src="adBlockDetector.js"></script>
+    <script>
+        (function () {
+            var enabledEl = document.getElementById('adb-enabled');
+            var disabledEl = document.getElementById('adb-not-enabled');
+
+            function adBlockDetected() {
+                enabledEl.style.display = 'none';
+                disabledEl.style.display = 'block';
+            }
+
+            function adBlockNotDetected() {
+                disabledEl.style.display = 'none';
+                enabledEl.style.display = 'block';
+            }
+
+            if (typeof window.adblockDetector === 'undefined') {
+                adBlockDetected();
+            } else {
+                window.adblockDetector.init({
+                    debug: true,
+                    found: function () {
+                        adBlockDetected();
+                    },
+                    notFound: function () {
+                        adBlockNotDetected();
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+
+</html>

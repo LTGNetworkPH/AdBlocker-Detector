@@ -1,0 +1,39 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.center,
+.below {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -150px;
+    margin-top: -150px;
+}
+
+.below {
+    left: 60%;
+}
+
+.notification {
+    padding: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    text-align: center;
+    display: none;
+}
+
+.bg-success {
+    background-color: #5cb85c;
+    color: #fff;
+}
+
+.bg-danger {
+    background-color: #d9534f;
+    color: #fff;
+}
