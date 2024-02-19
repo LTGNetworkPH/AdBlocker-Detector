@@ -1,9 +1,8 @@
 "use strict";
-// copyright https://github.com/md-hameem
 (function(win) {
 
 	var ENABLE_ANALYTICS = true;
-	var GA_TRACKING_ID = ''; 
+	var GA_TRACKING_ID = 'G-1G5KBQHTRE'; 
 	var analytics = {}; 
 
 	var ofs = 'offset', cl = 'client';
